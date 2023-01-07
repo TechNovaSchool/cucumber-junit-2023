@@ -764,6 +764,34 @@ Actions actions = new Actions(Driver.getDriver()); The object takes a driver a p
 actions.moveToElement(hoversOverPage.avatar1).perform()
 actions.moveToElement(hoversOverPage.avatar1).build().perform()
 .perform() is required at the end of each action from action class
+---
+01.07.2023
+How to create a new framework in BDD Format with cucumber 
+1. Create a new Maven project.
+2. Add dependencies: Java with Selenium, WebDriver, and JavaFaker.
+3. Add new dependencies:
+- cucumber-junit from cucumber.io
+- cucumber-java
+4. Create similar folder structure:
+5. Configuration.properties
+6. Create a new package under test/java: utilities
+7. Copy the Config class and Utilities from a previous project.
+8. Create a new package in the java folder: pages
+9. Create a new package in the java folder: runners
+10. Create a new package in the java folder: steps
+11. Create a new directory under test: resources, and mark it as the test resources root.
+12. Create a new directory under resources: features
+13. Install the Cucumber for Java and Gherkin plugins from the preferences option.
+14. Restart the IDE.
+15. Create a new class under runner: Runner
+16. Add a new annotation outside of the class: @RunWith(Cucumber.class) - this line forces the Runner class to run with Cucumber.
+17. Add a new annotation under the @RunWith annotation: @CucumberOptions().
+18. Add the path of the feature file: features = "src/test/resources/features" - this will let the Runner class know where to find the feature files.
+19. Set the path to the step definitions: glue = "steps".
+20. Right click on the features directory under resources and create a new file: "google.feature".
+21. Write details about the feature that you would like to automate.
+22. Run the Runner class.
+23. Use the steps to add definitions.
 
 
 
