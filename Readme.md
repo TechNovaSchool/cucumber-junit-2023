@@ -792,6 +792,40 @@ How to create a new framework in BDD Format with cucumber
 21. Write details about the feature that you would like to automate.
 22. Run the Runner class.
 23. Use the steps to add definitions.
+-------
+01.09.23
+
+Tell me about your framework ?
+
+The framework is BDD format and is using cucumber to write scenarios, this format helps to 
+create scenarios which every team member can understand even non -technical.
+Is build using page object model (POM) concept, where we create separate page for our elements 
+and this helps to malle framework easy to maintain.
+
+Java, Selenium for UI test, Maven, pom.xml , cucumber, junit, configuration file,utilities like Driver, config reader.
+-------
+BDD --> Behavior Driven Development
+
+Is an extension from TDD ( Test Driven Development)
+We first write tests in gherkin language, then we create implementation for the steps.
+
+TDD
+BDD
+KDD --> Keyword
+DDD --> Data driven development 
+-----------
+Scenario/
+---Test Case 
+---Test 
+---------
+Runner class
+features = "src/test/resources/features" --> this is a path to all feature files
+glue = "step_def" --> connect feature file and steps, and this path to out steps def
+tags = "@etsy" --> will allow to run particular test, or set tests
+dryRun 
+= false --> running the scenario and executing the steps
+= true ---> is running the scenario, but not executing the steps, browser is not opened.
+
 
 
 

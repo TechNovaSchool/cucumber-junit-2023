@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "step_def",
-        tags = "@etsy",
+        tags = "@smartbearLogin",
         dryRun = false
 )
 
