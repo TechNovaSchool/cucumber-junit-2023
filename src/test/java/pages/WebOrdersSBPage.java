@@ -12,4 +12,10 @@ public class WebOrdersSBPage {
 
     @FindBy (css = ".login_info")
     public WebElement getWelcomeMsg;
+
+    @FindBy (xpath = "//a[.='Order']")
+    public WebElement getOrdersTab;
+
+    @FindBy (xpath = "//select[@id=\"ctl00_MainContent_fmwOrder_ddlProduct\"]")
+    public WebElement getProductDropdown;
 }

@@ -845,6 +845,21 @@ The order should be in consecutive order, we can not reuse in background steps w
 order but same.
 
 
+Scenario Outline:
+--> It allows to use different data set for the scenario 
+-- Scenario Outline with close to data driven development 
+
+Given an user is on login page
+When user types "<username">
+When user types "<password">
+Then the user should see the "<userinfo>" displayed
+
+Examples:
+|username|password|userinfo      |
+|user123 |pass123|user123+pass123|
+|user456 |pass456|user123+pass123|
+
+
 
 
 
