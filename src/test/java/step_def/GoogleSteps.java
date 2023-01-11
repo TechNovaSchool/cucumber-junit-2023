@@ -31,7 +31,7 @@ public class GoogleSteps {
 
     @Then("I verify the title is Saucelabs")
     public void i_verify_the_title_is_saucelabs() {
-        String expectedTile = "saucelabs";
+        String expectedTile = "google";
         String actualTitle = Driver.getDriver().getTitle();
         Assert.assertTrue(actualTitle.contains(expectedTile));
 

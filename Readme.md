@@ -825,6 +825,24 @@ tags = "@etsy" --> will allow to run particular test, or set tests
 dryRun 
 = false --> running the scenario and executing the steps
 = true ---> is running the scenario, but not executing the steps, browser is not opened.
+------
+01.10.23
+
+What are hooks?
+Cucumber hooks
+Hooks is the class which holds before and after scenario logic, in the before we can have login and
+after scenario is done we will take a screenshot in case test failed, and then will close the browser.
+
+in order to generate report we can add a plugin
+plugin = {"html:target/cucumber-report.html"}
+Using this plugin we can generate a file with the results, which will be overwritten by the next run
+. The file can be open using any browser and it will show the results and all steps which pass/ or fail.
+
+----
+Background is a keyword in cucumber file that allows to add duplicates steps
+for starting for each scenario in one usage.
+The order should be in consecutive order, we can not reuse in background steps which are in random
+order but same.
 
 
 
