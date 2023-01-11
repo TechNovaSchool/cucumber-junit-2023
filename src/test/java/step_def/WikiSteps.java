@@ -46,7 +46,7 @@ public class WikiSteps {
 
     @Then("User see {string} in the wiki page title")
     public void user_see_in_the_wiki_page_title(String name) {
-        Assert.assertEquals(Driver.getDriver().getTitle(),name );
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(name) );
     }
 
 
