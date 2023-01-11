@@ -38,4 +38,17 @@ public class WikiSteps {
     public void user_see_steve_jobs_in_the_image_header() {
     Assert.assertEquals(wikiPage.getHeaderForImage.getText(), name);
     }
+
+    @When("User type {string} in the wiki search box")
+    public void user_type_in_the_wiki_search_box(String name) {
+      wikiPage.searchInput.sendKeys(name);
+    }
+
+    @Then("User see {string} in the wiki page title")
+    public void user_see_in_the_wiki_page_title(String name) {
+        Assert.assertEquals(Driver.getDriver().getTitle(),name );
+    }
+
+
+
 }
