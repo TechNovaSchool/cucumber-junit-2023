@@ -1,7 +1,7 @@
 Feature: Verify smart bear orders page
 
   @smartBearTest
-  Scenario Outline: User should be able to place order with different data sets
+  Scenario: User should be able to place order with different data sets
     Given User is logged into SmartBear Tester account and on Order page
     And User selects "<product>" from product dropdown
     And User enters "<quantity>" to quantity input box
@@ -17,6 +17,6 @@ Feature: Verify smart bear orders page
     Then User verifies "<expectedName>" is in the table
 
 
-    Examples:
-      | product     | quantity | customerName | streetName | city | state | zip | cardType | cardNumber | expirationDate | expectedName |
-      | ScreenSaver |
+#    Examples:
+#      | product     | quantity | customerName | streetName | city | state | zip | cardType | cardNumber | expirationDate | expectedName |
+#      | ScreenSaver |23        |Andrew        |123 Main st
