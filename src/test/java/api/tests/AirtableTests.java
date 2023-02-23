@@ -25,6 +25,25 @@ public class AirtableTests {
 
         System.out.println(rb.getRecords().get(0).getFields().getFirstName());
 
+        int size = rb.getRecords().size();
+
+        for (int i = 0; i < size; i++) {
+            if (rb.getRecords().get(i).getFields().getFirstName().startsWith("A")) {
+                String firstName = rb.getRecords().get(i).getFields().getFirstName();
+                String lastName = rb.getRecords().get(i).getFields().getLastName();
+                String email = rb.getRecords().get(i).getFields().getEmail();
+                boolean studentYes = rb.getRecords().get(i).getFields().isStudent();
+                int age = rb.getRecords().get(i).getFields().getAge();
+
+                System.out.println(firstName + " " + lastName + " " + email
+                        + " " + studentYes + " " +age);
+            }
+        }
+
+
+
+
+
 
     }
 }
