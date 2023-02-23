@@ -17,8 +17,10 @@ import java.util.List;
 
 public class AirtableTests {
 
+    String myRecordID;
+
     @Test
-    public void getRecords() throws JsonProcessingException {
+    public void a_getRecords() throws JsonProcessingException {
         Response response = RestAssured.given()
                 .header("Authorization", "Bearer keyUciDKN0atCXT7w")
                 .urlEncodingEnabled(false)
@@ -73,7 +75,7 @@ public class AirtableTests {
 
 
     @Test
-    public void postRecord() throws JsonProcessingException {
+    public void b_postRecord() throws JsonProcessingException {
 
         Myfields newStudent = new Myfields();
         newStudent.setFirstName("Andres");
@@ -106,23 +108,22 @@ public class AirtableTests {
 
         System.out.println(response.statusCode());
 
+        ResponseBody rb = objectMapper.readValue(response.asString(), ResponseBody.class);
+        myRecordID = rb.getRecords().get(0).getId();
+        System.out.println(myRecordID);
     }
 
     @Test
-    public void patchRecord() throws JsonProcessingException {
+    public void c_patchRecord() throws JsonProcessingException {
+        System.out.println(myRecordID);
+
 
         Myfields studentUpdate = new Myfields();
-        studentUpdate.setFirstName("Andres");
-        studentUpdate.setLastName("Nova");
-        studentUpdate.setEmail("andrew@gmail.com");
-        studentUpdate.setStudent(true);
         studentUpdate.setAddress("1478 Drive rd");
-        studentUpdate.setAge(25);
-
 
         Record record = new Record();
         record.setFields(studentUpdate);
-        record.setId("recMCDLcT5S2TH8zd");
+        record.setId(myRecordID);
 
         List<Record> records = new ArrayList<>();
         records.add(record);
@@ -132,6 +133,7 @@ public class AirtableTests {
 
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonValue = objectMapper.writeValueAsString(requestBody);
+        System.out.println(jsonValue);
 
         Response response = RestAssured.given()
                 .header("Authorization", "Bearer keyUciDKN0atCXT7w")
@@ -141,6 +143,22 @@ public class AirtableTests {
                 .patch(Config.getProperty("baseUrl"));
 
         System.out.println(response.statusCode());
+    }
+
+    @Test
+    public void d_deleteRecord() {
+
+        String queryParam = "records[]";
+        String recordID = myRecordID;
+
+        Response response = RestAssured.given()
+                .header("Authorization", "Bearer keyUciDKN0atCXT7w")
+                .urlEncodingEnabled(false)
+                .queryParam(queryParam, recordID)
+                .delete(Config.getProperty("baseUrl"));
+
+        System.out.println(response.statusCode());
+
 
     }
 }
