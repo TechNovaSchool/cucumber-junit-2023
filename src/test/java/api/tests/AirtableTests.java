@@ -1,6 +1,8 @@
 package api.tests;
 
+import api.models.Myfields;
 import api.models.Record;
+import api.models.RequestBody;
 import api.models.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -8,6 +10,9 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Test;
 import utils.Config;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AirtableTests {
 
@@ -63,5 +68,30 @@ public class AirtableTests {
                         + " " + element.getFields().getAge());
             }
         }
+    }
+
+
+    @Test
+    public void postRecord() {
+
+        Myfields newStudent = new Myfields();
+        newStudent.setFirstName("Andres");
+        newStudent.setLastName("Nova");
+        newStudent.setEmail("andrew@gmail.com");
+        newStudent.setStudent(true);
+        newStudent.setAddress("1478 Drive rd");
+        newStudent.setAge(25);
+
+        Record record = new Record();
+        record.setFields(newStudent);
+
+        List<Record> records = new ArrayList<>();
+        records.add(record);
+
+        RequestBody requestBody = new RequestBody();
+
+        requestBody.setRecords(records);
+
+
     }
 }
