@@ -107,4 +107,40 @@ public class AirtableTests {
         System.out.println(response.statusCode());
 
     }
+
+    @Test
+    public void patchRecord() throws JsonProcessingException {
+
+        Myfields studentUpdate = new Myfields();
+        studentUpdate.setFirstName("Andres");
+        studentUpdate.setLastName("Nova");
+        studentUpdate.setEmail("andrew@gmail.com");
+        studentUpdate.setStudent(true);
+        studentUpdate.setAddress("1478 Drive rd");
+        studentUpdate.setAge(25);
+
+
+        Record record = new Record();
+        record.setFields(studentUpdate);
+        record.setId("recMCDLcT5S2TH8zd");
+
+        List<Record> records = new ArrayList<>();
+        records.add(record);
+
+        RequestBody requestBody = new RequestBody();
+        requestBody.setRecords(records);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonValue = objectMapper.writeValueAsString(requestBody);
+
+        Response response = RestAssured.given()
+                .header("Authorization", "Bearer keyUciDKN0atCXT7w")
+                .urlEncodingEnabled(false)
+                .contentType(ContentType.JSON)
+                .body(jsonValue)
+                .patch(Config.getProperty("baseUrl"));
+
+        System.out.println(response.statusCode());
+
+    }
 }
