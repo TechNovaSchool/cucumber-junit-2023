@@ -7,6 +7,7 @@ import api.models.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 import utils.Config;
@@ -72,7 +73,7 @@ public class AirtableTests {
 
 
     @Test
-    public void postRecord() {
+    public void postRecord() throws JsonProcessingException {
 
         Myfields newStudent = new Myfields();
         newStudent.setFirstName("Andres");
@@ -92,6 +93,18 @@ public class AirtableTests {
 
         requestBody.setRecords(records);
 
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonValue = objectMapper.writeValueAsString(requestBody);
+        System.out.println(jsonValue);
+
+        Response response = RestAssured.given()
+                .header("Authorization", "Bearer keyUciDKN0atCXT7w")
+                .urlEncodingEnabled(false)
+                .contentType(ContentType.JSON)
+                .body(jsonValue)
+                .post(Config.getProperty("baseUrl"));
+
+        System.out.println(response.statusCode());
 
     }
 }
