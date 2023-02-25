@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.junit.Assert;
 import org.junit.Test;
 import utils.Config;
 
@@ -157,6 +158,7 @@ public class AirtableTests {
                 .queryParam(queryParam, recordID)
                 .delete(Config.getProperty("baseUrl"));
 
+        Assert.assertEquals(response.statusCode(),200);
         System.out.println(response.statusCode());
 
 
