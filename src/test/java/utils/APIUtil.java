@@ -15,6 +15,10 @@ public class APIUtil {
     private static Response response;
     private static ResponseBody responseBody;
 
+    public static  ResponseBody getResponseBody() {
+        return responseBody;
+    }
+
     public static void hitGet(String resource) {
 
         String uri = Config.getProperty("host") + resource;
@@ -65,6 +69,55 @@ public class APIUtil {
 
 
     }
+
+    public static void hitPatch(String resource, RequestBody body) {
+
+        String uri = Config.getProperty("host") + resource;
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        String bodyJson = "";
+        try {
+            bodyJson = objectMapper.writeValueAsString(body);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        response = RestAssured.given()
+                .header("Authorization", "Bearer " + Config.getProperty("apiKey"))
+                .urlEncodingEnabled(false)
+                .contentType(ContentType.JSON)
+                .body(bodyJson)
+                .patch(uri);
+
+        System.out.println(response.statusCode());
+
+        try {
+            responseBody = objectMapper.readValue(response.asString(),ResponseBody.class);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void hitDelete(String resource, String recordID){
+        String uri = Config.getProperty("host") + resource;
+
+        response = RestAssured.given()
+                .header("Authorization", "Bearer " + Config.getProperty("apiKey"))
+                .urlEncodingEnabled(false)
+                .queryParam("records[]", recordID)
+                .delete(uri);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            responseBody = objectMapper.readValue(response.asString(), ResponseBody.class);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 
 }
