@@ -4,7 +4,9 @@ import api.models.Myfields;
 import api.models.Record;
 import api.models.RequestBody;
 import com.github.javafaker.Faker;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runner.OrderWith;
 import utils.APIUtil;
 
 import java.util.ArrayList;
@@ -74,7 +76,17 @@ public class AirtableUtilTest {
         RequestBody requestBody = new RequestBody();
         requestBody.setRecords(records);
 
-        APIUtil.hitPost(resource, requestBody);
+        APIUtil.hitPatch(resource, requestBody);
+    }
+
+    @Test
+    public void testADelete(){
+        System.out.println(myRecord);
+        String resource = "/Table%201";
+        String recordToBeDeleted = myRecord;
+        APIUtil.hitDelete(resource,recordToBeDeleted);
+        System.out.println(APIUtil.getResponse().asString());
+
     }
 
 

@@ -19,6 +19,10 @@ public class APIUtil {
         return responseBody;
     }
 
+    public static Response getResponse() {
+        return response;
+    }
+
     public static void hitGet(String resource) {
 
         String uri = Config.getProperty("host") + resource;
@@ -107,6 +111,9 @@ public class APIUtil {
                 .urlEncodingEnabled(false)
                 .queryParam("records[]", recordID)
                 .delete(uri);
+
+        System.out.println(response.statusCode());
+
 
         ObjectMapper objectMapper = new ObjectMapper();
 
