@@ -58,7 +58,7 @@ public class APIUtil {
         System.out.println(response.statusCode());
 
         try {
-            responseBody = objectMapper.readValue(response.asString(),ResponseBody.class)
+            responseBody = objectMapper.readValue(response.asString(),ResponseBody.class);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
