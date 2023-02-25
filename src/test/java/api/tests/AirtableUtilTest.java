@@ -14,16 +14,16 @@ import java.util.List;
 
 public class AirtableUtilTest {
 
-    String myRecord;
+    public static String myRecord;
 
     @Test
-    public void testGetMethod() {
+    public void testZGetMethod() {
         String resource = "/Table%201";
         APIUtil.hitGet(resource);
     }
 
     @Test
-    public void testPostMethod() {
+    public void testCPostMethod() {
 
         Faker faker = new Faker();
         String resource = "/Table%201";
@@ -51,10 +51,11 @@ public class AirtableUtilTest {
 
         APIUtil.hitPost(resource, requestBody);
         myRecord = APIUtil.getResponseBody().getRecords().get(0).getId();
+        System.out.println(myRecord);
     }
 
     @Test
-    public void testPatchMethod() {
+    public void testZPatchMethod() {
 
         String resource = "/Table%201";
 
