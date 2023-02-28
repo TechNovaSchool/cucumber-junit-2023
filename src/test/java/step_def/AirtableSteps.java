@@ -14,12 +14,17 @@ public class AirtableSteps {
         APIUtil.hitGet(resource);
 
     }
+
     @Then("user will receive status {string}")
     public void user_will_receive_status(String statusCode) {
 //        String strParse = Integer.toString(APIUtil.getResponse().statusCode());
         String str = String.valueOf(APIUtil.getResponse().statusCode());
-        Assert.assertEquals(statusCode,str );
+        Assert.assertEquals(statusCode, str);
 
     }
 
+    @When("user call a GET single endpoint")
+    public void userCallAGETSingleEndpoint() {
+        APIUtil.hitGet(resource + "/rec1jvzVX859WtimN");
+    }
 }
