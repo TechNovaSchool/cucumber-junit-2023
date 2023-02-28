@@ -11,7 +11,7 @@ public class Hooks {
 
     @Before// cucumber annotation and not Junit
     public void setUp() {
-        System.out.println("The scenario is running");
+//        System.out.println("The scenario is running");
         //example login
     }
 

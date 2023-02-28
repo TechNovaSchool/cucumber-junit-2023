@@ -9,6 +9,8 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 public class ResponseBody {
-
+    String id;
+    String createdTime;
+    Myfields fields;
     List<Record> records;
 }

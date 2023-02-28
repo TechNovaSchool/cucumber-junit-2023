@@ -1,5 +1,6 @@
 package step_def;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -26,5 +27,14 @@ public class AirtableSteps {
     @When("user call a GET single endpoint")
     public void userCallAGETSingleEndpoint() {
         APIUtil.hitGet(resource + "/rec1jvzVX859WtimN");
+    }
+
+    @And("user verify the first name")
+    public void userVerifyTheFirstName() {
+
+        String actualName = APIUtil.getResponseBody().getFields().getFirstName();
+        Assert.assertEquals(actualName,"Elliot");
+
+
     }
 }
