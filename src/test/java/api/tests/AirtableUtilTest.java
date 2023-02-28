@@ -4,9 +4,7 @@ import api.models.Myfields;
 import api.models.Record;
 import api.models.RequestBody;
 import com.github.javafaker.Faker;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runner.OrderWith;
 import utils.APIUtil;
 
 import java.util.ArrayList;
