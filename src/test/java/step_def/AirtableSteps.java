@@ -5,10 +5,15 @@ import api.models.Record;
 import api.models.RequestBody;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import pages.AirTableBasePage;
+import pages.AirTableLoginPage;
 import utils.APIUtil;
+import utils.Config;
+import utils.Driver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -117,4 +122,28 @@ public class AirtableSteps {
     public void userWillReceiveStatusCode(int statusCode) {
         Assert.assertEquals(statusCode, APIUtil.getResponse().statusCode());
     }
+
+    @Given("user is logs in the airtable account")
+    public void user_is_logs_in_the_airtable_account() throws InterruptedException {
+        AirTableLoginPage airTableLoginPage = new AirTableLoginPage();
+        Driver.getDriver().get(Config.getProperty("loginPageAirTable"));
+        airTableLoginPage.emailField.sendKeys(Config.getProperty("loginAirtable"));
+        airTableLoginPage.passwordField.sendKeys(Config.getProperty("passwordAirtable"));
+        airTableLoginPage.signInBtn.click();
+
+    }
+    @When("user selects a base")
+    public void user_selects_a_base() {
+        AirTableBasePage airTableBasePage = new AirTableBasePage();
+        airTableBasePage.baseAvatar.click();
+    }
+    @When("adds a new record")
+    public void adds_a_new_record() {
+
+    }
+    @Then("will verify the record was saved, using api call")
+    public void will_verify_the_record_was_saved_using_api_call() {
+
+    }
+
 }
