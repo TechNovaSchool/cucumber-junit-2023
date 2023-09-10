@@ -858,6 +858,124 @@ Examples:
 |username|password|userinfo      |
 |user123 |pass123|user123+pass123|
 |user456 |pass456|user123+pass123|
+------------
+
+
+
+### Selenium Training Overview
+
+#### Introduction to Front-End (FE) and Back-End (BE) Development
+- **Front-End (FE)**
+  - **Components:**
+    - HTML (Structure)
+    - CSS (Style)
+    - JavaScript (JS) – Logic & Actions
+  - **User Interface (UI)**
+    - Graphic User Interface (GUI)
+- **Back-End (BE)**
+  - Database (DB)
+  - Server-side operations
+
+#### DevTools
+- Tags: `<p>`, `<h>`, `<i>`, `<strong>`, `<ol>`, `<ul>`, `<li>`, `<u>`, `<br>`
+- Example: `<p>Some text</p>`
+
+### Selenium Overview
+
+#### Selenium Automation Tool
+- **Definition**: An open-source tool for automating web applications.
+- **Components:**
+  - Selenium WebDriver
+  - Selenium Grid
+- **Pros:**
+  - Free and open-source
+  - Supports multiple languages and platforms
+  - Large community support
+- **Cons:**
+  - No customer service
+  - Cannot automate all elements (e.g., captcha, pictures)
+  - Not suitable for desktop application testing
+
+#### Getting Started with Selenium (First Day 12.03.2022)
+- **Maven Repository**: A place to access necessary libraries and add them to your project.
+- **Driver Methods:**
+  - `driver.get()`: Opens the provided link
+  - `driver.getTitle()`: Retrieves the current page title
+  - `driver.close()`: Closes the browser instance after the test
+
+### Maven Build Automation Tool
+- **Features:**
+  - Facilitates build creation during development
+  - Manages dependencies stored in a repository
+  - Generates a project structure including `src`, `main`, `test`, and `pom.xml` files.
+- **Dependency Management:**
+  - Selenium dependency
+  - WebDriverManager: Helps manage drivers for different browsers
+
+### Selenium WebDriver: Navigations and Methods
+- **Navigations:**
+  - `driver.get()`
+  - `driver.close()`
+  - `driver.navigate().forward()`
+  - `driver.navigate().back()`
+- **Methods:**
+  - `driver.getTitle()`
+  - `driver.getCurrentUrl()`
+- **Element Location:**
+  - `findElements()`: Finds a web element; returns a WebElement.
+  - `driver.findElement(Locator)`: Utilizes one of eight different locators to find elements.
+
+#### Selenium Locators
+1. **linkText**: Searches for text value between `<a>` tags.
+2. **name**: Identifies elements with a specific name attribute.
+3. **className**: Searches for elements by class attribute value.
+4. **id**: Identifies elements by unique id attributes.
+5. **partialLinkText**: Partially matches link texts.
+6. **tagName**: Identifies elements by their tag name.
+7. **CSS selectors**: Various strategies to select elements based on CSS.
+8. **XPath selectors**: Two types – absolute and relative, to find elements using XPath expressions.
+
+#### Selenium Commands and Methods as of (12.07.22)
+- **Commands:**
+  - `click()`: Performs a click action
+  - `sendKeys()`: Inputs a string; can be combined with keys such as `Keys.ENTER`
+- **Methods:**
+  - `getText()`: Retrieves text value of a WebElement
+  - `isDisplayed()`: Checks if an element is displayed; returns a boolean
+- **Navigating with older methods:**
+  - `driver.navigate().to()`: Navigates to a link without waiting for the page to fully load, potentially causing unstable tests
+  - `driver.close()` and `driver.quit()`: Commands to close browser sessions
+
+### Understanding CSS Selectors and XPath in Selenium
+Detailed explanation of strategies to find elements using CSS selectors and XPath, including the usage of attributes, partial values, and navigating through child and parent elements in the DOM hierarchy.
+
+### Handling Web Elements (12.10.22)
+- **Definition of Web Elements:** Elements present on a web page including buttons, links, and images.
+- **Locators:** Methods in Selenium library used to find web elements.
+- **Methods to find Web Elements:**
+  - `findElement()`: Finds a single web element
+  - `findElements()`: Finds a list of web elements
+- **Common Error:** NoSuchElementException
+
+### Working with Dropdowns, Checkboxes, and Radio Buttons
+- **Dropdown Handling:** Strategies to work with different types of dropdowns and testing various aspects of them using Selenium's Select class and different selection methods.
+- **Checkboxes and Radio Buttons:**
+  - `isSelected()`: Checks if an element is selected; returns a boolean
+  - `isEnabled()`: Checks if an element is enabled; returns a boolean
+- **Full Screen Command:**
+  - `driver.manage().window().maximize()`: Maximizes the browser window
+
+### Maven: Overview
+- **Definition:** A build automation tool.
+- **Features:**
+  - Creates folder structures and compiles code
+  - Manages dependencies and versioning through `pom.xml` file
+
+### Advanced Selenium Topics (12.13.22)
+- **Handling Dropdowns:** In-depth explanation of handling different types of dropdowns and testing their functionalities using Selenium.
+- **Working with Tables:** Strategies to identify and work with individual cells, rows, or columns in web tables using XPath.
+
+
 
 
 
