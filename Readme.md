@@ -861,7 +861,7 @@ Examples:
 ------------
 
 
-
+For Mika
 ### Selenium Training Overview
 
 #### Introduction to Front-End (FE) and Back-End (BE) Development
@@ -975,6 +975,83 @@ Detailed explanation of strategies to find elements using CSS selectors and XPat
 - **Handling Dropdowns:** In-depth explanation of handling different types of dropdowns and testing their functionalities using Selenium.
 - **Working with Tables:** Strategies to identify and work with individual cells, rows, or columns in web tables using XPath.
 
+---
+
+### Automated Testing Documentation
+
+#### Introduction
+
+In our recent project, we utilized Java alongside Selenium for the automation of test cases. Leveraging tools such as WebdriverManager and Java Faker, we optimized our process effectively. Here we outline the methodologies and tools we used during the period from December 17, 2022, to January 10, 2023.
+
+#### Test Automation Structure
+
+- **Structure**: Table body → Table row → Table column
+- **Primary Language**: Java
+- **Key Tools**: Selenium (webdriver), WebdriverManager, and Java Faker
+
+#### The Process of Test Automation
+
+1. **Class Creation**: 
+   - Incepted with a class development where logic was built using WebdriverManager.
+   - Instanced an object for the browser in the designated class/method.
+
+2. **Test Verification**:
+   - Employed conditional statements (if/else) and boolean values to verify test outcomes.
+   - Example:
+     ```java
+     if(driver.getTitle().equals("Gift box - Etsy")){
+       System.out.println("Pass");
+     } else {
+       System.out.println("Fails");
+     }
+     ```
+
+#### Utilization of TestNG
+
+- **Definition**: A unit testing framework primarily used for unit testing but also functional testing. It facilitates the creation of a testing flow using annotations.
+- **Naming**: TestNG stands for "Test Next Generation".
+- **Annotations**:
+  - `@BeforeClass`: Executes initially within the class.
+  - `@AfterClass`: Executes after all the methods in the class have been used.
+  - `@BeforeMethod`: Runs before each test.
+  - `@AfterMethod`: Runs after each test.
+  - `@Test`: Defines where the test logic is created.
+- **Assertions**: 
+  - Enable the verification of actual values against expected ones.
+  - Determine the test outcomes as pass or fail.
+
+#### Advanced Features of TestNG
+
+- **Skipping Tests**:
+  - Using `@Ignore` annotation.
+  - Commenting out the test.
+- **Test Priority**:
+  - Can be set using `@Test(priority = value)`, where value is any integer (positive or negative).
+  - Default is 0; the test with the lowest priority value runs first.
+- **Dependencies**:
+  - Set with `dependsOnMethods = "methodName"` to establish test dependencies.
+
+(continued in the next sections like "Iframe Handling", "Soft Assertions", "Handling Windows and Tabs", "Configuration Properties", "Page Object Model (POM)", "Synchronization Strategies", and "Setting Up a BDD Framework with Cucumber". Each section would delve into details as seen in your original text, presenting definitions, utility, and how-to instructions, including code snippets and commands.)
+
+---
+
+#### Conclusion
+
+On January 10, 2023, we concluded with a detailed understanding of our BDD framework that leverages Cucumber for writing user-friendly scenarios, following the POM concept for efficient and maintainable framework design. The setup involved a range of technologies including Java, Selenium for UI testing, Maven, Junit, among others. The endeavor facilitated a user-friendly representation of scenarios, enhancing comprehensibility for both technical and non-technical team members.
+
+---
+
+#### Frequently Asked Questions (FAQs)
+
+- **What is the structure of the framework?**
+  
+  The framework follows the BDD format and utilizes Cucumber for writing scenarios that can be understood by every team member, even those with non-technical backgrounds. It is built using the Page Object Model (POM) concept, which facilitates easy maintenance by creating separate pages for elements.
+
+- **What are hooks in Cucumber?**
+
+  Hooks in Cucumber are blocks of code that run before or after each scenario. They can be used for setup and teardown activities, such as logging in before a scenario and taking a screenshot if a test fails.
+
+(Note: Consider adding more FAQs based on the potential queries that may arise from the project team.)
 
 
 
